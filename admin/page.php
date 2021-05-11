@@ -4,12 +4,7 @@
      * /
      *
      */
-    $do = '';
-    if(isset($_GET['do'])){
-        $do = $_GET['do'];
-    } else {
-        $do = 'Manage';
-    }
+    $do = isset($_GET['do'])? $_GET['do']:'Manage' ;
     //    if the page is the main
     if($do == 'Manage'){
         echo "welcome You are in Manage category page ";
