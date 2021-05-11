@@ -9,4 +9,11 @@ $(function(){
     }).blur(function (){
        $(this).attr('placeholder', $(this).attr('placeholder-text'));
     });
+
+    // change active as focused
+    $('ul.navy li').on('click', function (){
+        $(this).parent().find('li.active').removeClass('active');
+        $(this).addClass('active');
+    });
+
 });
