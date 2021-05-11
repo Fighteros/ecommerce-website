@@ -21,7 +21,7 @@
                         <?php echo ucfirst($_SESSION['Username']) ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#"><?php echo lang('profile-col');?></a>
+                        <a class="dropdown-item" href="members.php?do=Edit&userid=<?php echo $_SESSION['ID']; ?>"><?php echo lang('profile-col');?></a>
                         <a class="dropdown-item" href="#"><?php echo lang('settings-col');?></a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="logout.php"><?php echo lang('logout-col');?></a>

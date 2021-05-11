@@ -2,24 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90ec99a3-8928-41ce-bfcb-8d4bf7f24924" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/admin/includes/functions/functions.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/logout.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/admin/members.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/includes/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/templates/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/includes/templates/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/includes/templates/navbar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/init.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/layout/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/layout/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/page.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/page.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
-    <execution />
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -49,7 +47,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor.code.editing" />
+    <property name="settings.editor.selected.configurable" value="reference.idesettings.emmet.jsx" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -68,7 +66,7 @@
       <workItem from="1620358143043" duration="2281000" />
       <workItem from="1620670648646" duration="1664000" />
       <workItem from="1620673959705" duration="157000" />
-      <workItem from="1620675411000" duration="24355000" />
+      <workItem from="1620675411000" duration="28083000" />
     </task>
     <servers />
   </component>

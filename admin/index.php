@@ -17,8 +17,10 @@
         $hashed_password = sha1($password);
         // check if user exists in DB
         // check if user is an admin
-        $stmt = $conn -> prepare("SELECT Username, Password FROM users WHERE Username = ? AND Password = ? AND GroupID = 1");
+        $stmt = $conn -> prepare("SELECT UserID, Username, Password FROM users WHERE Username = ? AND Password = ? AND GroupID = 1 LIMIT 1");
         $stmt -> execute(array($username, $hashed_password));
+        // fetch record
+        $row = $stmt -> fetch();
         $count = $stmt -> rowCount();
 
         // if user found
@@ -26,6 +28,7 @@
         if ($count > 0){
             // register session name
             $_SESSION['Username'] = $username;
+            $_SESSION['ID'] = $row['UserID'];
             // redirect to dashboard
             header('Location: dashboard.php');
             exit();

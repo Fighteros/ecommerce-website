@@ -3,6 +3,12 @@
 body {
     background-color: #f4f4f4;
 }
+h1 {
+    font-size: 55px;
+    margin: 40px 0;
+    font-weight: bold;
+    color: #888;
+}
 
 
 /* Login Form */
@@ -65,3 +71,6 @@ body {
         margin-left: 2px;
     }
 }
+
+/* Members Page*/
+
