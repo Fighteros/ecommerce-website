@@ -8,7 +8,7 @@
     //    if the page is the main
     if($do == 'Manage'){
         echo "welcome You are in Manage category page ";
-        echo "<a href='page.php?do='>Add New Category</a>";
+        echo "<a href='page.php?do=Add'>Add New Category</a>";
     }elseif ($do == 'Add'){
         echo "welcome You are in add category page";
     }elseif ($do == 'Edit'){
@@ -16,5 +16,5 @@
     }elseif ($do == 'Update'){
         echo "welcome You are in Update category page";
     }else {
-        echo "Error there\'s no page with this name";
+        echo "Error there is no page with this name";
     }

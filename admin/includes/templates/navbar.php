@@ -24,7 +24,7 @@
                         <a class="dropdown-item" href="#"><?php echo lang('profile-col');?></a>
                         <a class="dropdown-item" href="#"><?php echo lang('settings-col');?></a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><?php echo lang('logout-col');?></a>
+                        <a class="dropdown-item" href="logout.php"><?php echo lang('logout-col');?></a>
                     </div>
                 </li>
             </ul>
