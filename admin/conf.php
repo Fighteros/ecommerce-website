@@ -12,5 +12,5 @@
         $conn = new PDO($DataSource, $user, $pass, $option);
         $conn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }catch (PDOException $e){
-        echo  'Faild to connect' . $e -> getMessage();
+        echo  'Failed to connect To DB, ERROR: ' . $e -> getMessage();
     }
