@@ -71,13 +71,30 @@
                 $pass = empty($_POST['new-password'])? $_POST['old-password'] :$pass = sha1($_POST['new-password']);
 
                 // Form validation
-
-
+                $formErrors = array();
+                if(strlen($username) < 4){
+                    $formErrors[] = "Username can't be less than 4 chars";
+                }
+                if(strlen($username) > 20){
+                    $formErrors[] = "Username can't be more than 20 chars";
+                }
+                if(empty($username)){
+                    $formErrors[] = "Username be empty";
+                }
+                if (empty($FullName)){
+                    $formErrors[] = "FullName be empty";
+                }
+                if (empty($email)){
+                    $formErrors[] = "email be empty";
+                }
+                foreach ($formErrors as $error){
+                    echo $error . '<br/>';
+                }
                 // connect to DB
-                $stmt = $conn -> prepare("UPDATE users SET Username = ?, Email = ?, FullName = ?, Password = ? WHERE UserID = ?");
-                $stmt -> execute(array($username, $email, $FullName, $pass ,$id));
+                //$stmt = $conn -> prepare("UPDATE users SET Username = ?, Email = ?, FullName = ?, Password = ? WHERE UserID = ?");
+                //$stmt -> execute(array($username, $email, $FullName, $pass ,$id));
                 // echo success
-                echo $stmt -> rowCount(). "Record Updated";
+                //echo $stmt -> rowCount(). "Record Updated";
 
             }else {
                 echo "You are not Authorized to Access this";
