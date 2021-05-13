@@ -3,12 +3,6 @@
 body {
     background-color: #f4f4f4;
 }
-h1 {
-    font-size: 55px;
-    margin: 40px 0;
-    font-weight: bold;
-    color: #888;
-}
 
 
 /* Login Form */
@@ -20,6 +14,7 @@ h1 {
 
 .login h4 {
     color: #888;
+    margin-bottom: 50px;
 }
 
 .login input {
@@ -32,6 +27,7 @@ h1 {
 
 .login .btn {
     background-color: #0088dd;
+    margin-top: 15px;
 }
 
 /* navBar Edits */
@@ -72,5 +68,32 @@ h1 {
     }
 }
 
-/* Members Page*/
+/* Members Page */
+
+.form-control {
+    position: relative;
+}
+
+.asterisk {
+    font-size: 11px;
+    position: absolute;
+    right: 30px;
+    top: 11px;
+    color: #d20787;
+}
+
+.page-title {
+    font-size: 55px;
+    margin: 40px 0;
+    font-weight: bold;
+    color: #888;
+}
+
+@media (min-width :728px) {
+    .form-edit {
+        margin: 20px 100px;
+    }
+
+}
+
 

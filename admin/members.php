@@ -19,35 +19,35 @@
             if($count > 0){
                 ?>
                 <div class="container">
-                    <h1 class="text-center">Edit Member</h1>
-                    <form action="?do=Update" method="post" class="form-horizontal">
+                    <h4 class="text-center page-title">Edit Member</h4>
+                    <form action="?do=Update" method="post" class="form-edit text-center">
                         <input type="hidden" name="userid" value="<?php echo $userId; ?>">
                         <!-- Username -->
-                        <div class="form-group form-group-lg ">
-                            <label  class="col-sm-2 control-label">Username</label>
-                            <div class="col-sm-10 col-md-4"><input class="form-control" type="text" name="username" value="<?php echo $row['Username']; ?>" autocomplete="off"></div>
+                        <div class="form-group row form-group-lg ">
+                            <label  class="col-sm-2 col-form-label">Username</label>
+                            <div class="col-sm-10 col-md-8"><input class="form-control" type="text" name="username" value="<?php echo $row['Username']; ?>" autocomplete="off" required="required"> </div>
                         </div>
                         <!--  password -->
-                        <div class="form-group form-group-lg">
-                            <label  class="col-sm-2 control-label">Password</label>
-                            <div class="col-sm-10 col-md-4">
-                                <input class=" form-control" type="password" name="new-password" autocomplete="new-password">
+                        <div class="form-group row form-group-lg">
+                            <label  class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10 col-md-8">
+                                <input class="form-control" type="password" name="new-password" autocomplete="new-password" placeholder="leave blank to use your old password">
                                 <input type="hidden" name="old-password" value="<?php echo $row['Password']; ?>">
                             </div>
                         </div>
                         <!-- Email -->
-                        <div class="form-group form-group-lg">
-                            <label  class="col-sm-2 control-label">Email</label>
-                            <div class="col-sm-10 col-md-4"><input class=" form-control" type="email" value="<?php echo $row['Email']; ?>" name="email"></div>
+                        <div class="form-group row form-group-lg">
+                            <label  class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10 col-md-8"><input class=" form-control" type="email" value="<?php echo $row['Email']; ?>" name="email" required="required"></div>
                         </div>
                         <!-- Full name -->
-                        <div class="form-group form-group-lg">
-                            <label class="col-sm-2 control-label">FullName</label>
-                            <div class="col-sm-10 col-md-4"><input class=" form-control" type="text" value="<?php echo $row['FullName']; ?>" name="FullName"></div>
+                        <div class="form-group row form-group-lg">
+                            <label class="col-sm-2 col-form-label">FullName</label>
+                            <div class="col-sm-10 col-md-8"><input class=" form-control" type="text" value="<?php echo $row['FullName']; ?>" name="FullName" required="required"></div>
                         </div>
                         <!-- Button -->
                         <div class="form-group form-group-lg">
-                            <div class="col-md-offset-3 col-sm-10 col-md-4"><input class="btn btn-primary btn-lg" type="submit" value="Save"></div>
+                            <div class="col-md-offset-3 col-sm-10 col-md-5"><input class="btn btn-primary" type="submit" value="Save"></div>
                         </div>
                     </form>
                 </div>
@@ -60,6 +60,7 @@
         }
         elseif ($do == 'Update'){
             echo "<h1 class=\"text-center\">Update Member</h1>";
+            echo  "<div class='container'>" ;
             if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 // get vars form the form
                 $id         = $_POST['userid'];
@@ -88,21 +89,23 @@
                     $formErrors[] = "email be empty";
                 }
                 foreach ($formErrors as $error){
-                    echo $error . '<br/>';
+                    echo '<div class="alert alert-danger">'.$error .'</div>';
                 }
-                // connect to DB
-                //$stmt = $conn -> prepare("UPDATE users SET Username = ?, Email = ?, FullName = ?, Password = ? WHERE UserID = ?");
-                //$stmt -> execute(array($username, $email, $FullName, $pass ,$id));
-                // echo success
-                //echo $stmt -> rowCount(). "Record Updated";
+                // if valid
+                if(empty($formErrors)) {
+                    // connect to DB
+                    $stmt = $conn->prepare("UPDATE users SET Username = ?, Email = ?, FullName = ?, Password = ? WHERE UserID = ?");
+                    $stmt->execute(array($username, $email, $FullName, $pass, $id));
+                    // echo success
+                    echo '<div class="alert alert-success">'.$stmt -> rowCount(). " Record Updated </div>";
+                }
 
             }else {
-                echo "You are not Authorized to Access this";
+                echo "<div class='alert alert-danger'> You are not Authorized to Access this </div>";
             }
 
         }
-
-
+        echo "</div>";
         include $admin_templates . "footer.php";
     }
     else {

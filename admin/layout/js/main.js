@@ -16,4 +16,11 @@ $(function(){
         $(this).addClass('active');
     });
 
+    // add asterisk on Required Fields
+    $('input').each(function (){
+        if($(this).attr('required') === 'required'){
+            $(this).after('<span class="asterisk"><i class="fa fa-asterisk"></i></span>');
+        }
+    });
+
 });
