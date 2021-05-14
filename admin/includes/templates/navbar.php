@@ -10,7 +10,7 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#"><?php echo lang('cat-col'); ?><span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#"> <?php echo lang('users-col');?> </a></li>
+                <li class="nav-item"><a class="nav-link" href="members.php?do=Manage"> <?php echo lang('users-col');?> </a></li>
                 <li class="nav-item"><a class="nav-link" href="#"> <?php echo lang('items-col');?> </a></li>
                 <li class="nav-item"><a class="nav-link" href="#"> <?php echo lang('stats-col');?> </a></li>
                 <li class="nav-item"><a class="nav-link" href="#"> <?php echo lang('logs-col');?> </a></li>

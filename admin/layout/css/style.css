@@ -96,4 +96,10 @@ body {
 
 }
 
+.show-pass {
+    position: absolute;
+    right: 55px;
+    top: 11px;
+}
+
 
