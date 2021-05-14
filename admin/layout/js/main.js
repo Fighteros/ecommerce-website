@@ -26,6 +26,7 @@ $(function(){
     // change icon and make password visible
     $('.show-pass').on('click', function() {
         $(this).toggleClass('fa-eye-slash fa-eye');
+        // this equals $('#password-field') which is the input
         var passSpan = $($(this).attr('toggle'));
         if(passSpan.attr('type') == 'password'){
             passSpan.attr('type', 'text');

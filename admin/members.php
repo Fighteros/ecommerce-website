@@ -32,12 +32,12 @@
                     <!-- Email -->
                     <div class="form-group row form-group-lg">
                         <label  class="col-sm-2 col-form-label">Email</label>
-                        <div class="col-sm-10 col-md-8"><input class=" form-control" type="email" name="email" placeholder="Email" required="required"></div>
+                        <div class="col-sm-10 col-md-8"><input class="form-control" type="email" name="email" placeholder="Email" required="required"></div>
                     </div>
                     <!-- Full name -->
                     <div class="form-group row form-group-lg">
                         <label class="col-sm-2 col-form-label">FullName</label>
-                        <div class="col-sm-10 col-md-8"><input class=" form-control" type="text" placeholder="FullName" name="FullName" required="required"></div>
+                        <div class="col-sm-10 col-md-8"><input class="form-control" type="text" placeholder="FullName" name="FullName" required="required"></div>
                     </div>
                     <!-- Button -->
                     <div class="form-group form-group-lg">
@@ -58,19 +58,15 @@
                 $hPass      = sha1($pass);
                 $email      = $_POST['email'];
                 $FullName   = $_POST['FullName'];
-
-                // password
-                $pass = empty($_POST['new-password'])? $_POST['old-password'] :$pass = sha1($_POST['new-password']);
-
-                // Form validation
                 $formErrors = array();
-                if(strlen($username) < 4){
+                if(strlen($user) < 4){
                     $formErrors[] = "Username can't be less than 4 chars";
                 }
-                if(strlen($username) > 20){
+                if(strlen($user) > 20){
                     $formErrors[] = "Username can't be more than 20 chars";
                 }
-                if(empty($username)){
+
+                if(empty($user)){
                     $formErrors[] = "Username can't be empty";
                 }
                 if (empty($FullName)){
@@ -88,8 +84,13 @@
                 // if valid
                 if(empty($formErrors)) {
                     // connect to DB
-                    $stmt = $conn->prepare("");
-                    $stmt->execute(array($username, $email, $FullName, $pass, $id));
+                    $stmt = $conn->prepare("INSERT INTO users(Username, Password, Email, FullName) VALUES (:zuser, :zpass, :zemail, :zname)");
+                    $stmt->execute(array(
+                        'zuser' => $user,
+                        'zpass' => $hPass,
+                        'zemail' => $email,
+                        'zname' => $FullName,
+                    ));
                     // echo success
                     echo '<div class="alert alert-success">'.$stmt -> rowCount(). " Record Updated </div>";
                 }
