@@ -102,4 +102,9 @@ body {
     top: 11px;
 }
 
+.main-table tr:first-child{
+    background-color: #333;
+    color: #fff;
+}
+
 
