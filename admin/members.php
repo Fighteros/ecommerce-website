@@ -1,6 +1,7 @@
 <?php
     /*    Manage members page [add | edit | delete]    */
     /* link for vid = https://www.youtube.com/watch?v=s0SyCOrd5jE&list=PLDoPjvoNmBAxdiBh6J62wOzEnvC4CNuFU&index=31 */
+    /* needs to be cont */
     session_start();
     $pageTitle = "Members";
     if(isset($_SESSION['Username'])){
