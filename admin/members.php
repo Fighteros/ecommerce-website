@@ -1,12 +1,17 @@
 <?php
     /*    Manage members page [add | edit | delete]    */
-
+    /* link for vid = https://www.youtube.com/watch?v=s0SyCOrd5jE&list=PLDoPjvoNmBAxdiBh6J62wOzEnvC4CNuFU&index=31 */
     session_start();
     $pageTitle = "Members";
     if(isset($_SESSION['Username'])){
         include "init.php";
         $do = isset($_GET['do'])? $_GET['do'] : 'Manage';
-        if ($do == 'Manage'){  ?>
+        if ($do == 'Manage'){
+            $stmt = $conn -> prepare("SELECT * FROM users WHERE GroupID != 1");
+            $stmt -> execute();
+             // select all Users that aren't admins
+            $rows = $stmt -> fetchAll();
+            ?>
             <div class="container">
                 <h4 class="text-center page-title"> Manage Members</h4>
                 <div class="table-responsive">
@@ -20,65 +25,21 @@
                             <td>Register date</td>
                             <td>Control</td>
                         </tr>
-                        <!-- table second row -->
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="#" class="btn btn-success">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="#" class="btn btn-success">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="#" class="btn btn-success">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="#" class="btn btn-success">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <a href="#" class="btn btn-success">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                            </td>
-                        </tr>
+                        <!-- table  rows -->
+                        <?php
+                        foreach ($rows as $row){
+                            echo "<tr>";
+                                echo "<td>". $row['UserID'] . "</td>";
+                                echo "<td>". $row['Username'] . "</td>";
+                                echo "<td>". $row['Email'] . "</td>";
+                                echo "<td>". $row['FullName'] . "</td>";
+                                echo "<td>
+                                    <a href='members.php?do=Edit&userid=" .$row['UserID'] ."' class='btn btn-success'>Edit</a>
+                                    <a href=\"#\" class=\"btn btn-danger\">Delete</a>
+                                        </td>";
+                            echo "</tr>";
+                        }
+                        ?>
                     </table>
                 </div>
                 <a href="members.php?do=Add" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Add New Member</a>
